@@ -39,22 +39,6 @@ Ferramenta de *drill-down* que permite explorar dados por município e setor, re
 
 ---
 
-## Estrutura do Repositório
-
-├── ETL/
-│   ├── es2023_tratamento.ipynb         # Exploração e limpeza inicial dos dados
-│   └── preparar_csv_powerbi.ipynb      # ETL final: merge com dicionários e geração do CSV para o Power BI
-│
-├── Visualizações/
-│   ├── dashboard_empregos_es.pbix      # Arquivo-fonte do Power BI
-│   ├── dashboard_empregos_es.pdf       # Versão em PDF para visualização rápida
-│   ├── Dashboard de Empregos Formais (RAIS 2023)_page-0001.jpg                # Screenshot da Página 1
-│   └── Dashboard de Empregos Formais (RAIS 2023)_page-0002.jpg                # Screenshot da Página 2
-│
-├── Relatorio_Elaboracao.docx           # Documento dissertativo com storytelling e aspectos técnicos
-├── .gitignore                          # Ignora arquivos grandes (CSVs) e arquivos do sistema
-└── README.md                           # Este arquivo
-
 ## Como Utilizar o Projeto
 
 1. **Dados Brutos (Fonte)**  
