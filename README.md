@@ -15,7 +15,7 @@ O painel é dividido em **duas páginas**, seguindo uma narrativa “**macro →
 Visão geral do panorama de empregos formais no estado, respondendo:  
 > “Qual é a fotografia do emprego no Espírito Santo?”
 
-![Página 1: Sumário Executivo](Visualizações/Dashboard de Empregos Formais (RAIS 2023)_page-0001.jpg)
+![Página 1: Sumário Executivo](Visualizacoes/dashboard_page1.jpg)
 
 ---
 
@@ -23,7 +23,7 @@ Visão geral do panorama de empregos formais no estado, respondendo:
 Ferramenta de *drill-down* que permite explorar dados por município e setor, respondendo:  
 > “Quais são as profissões mais relevantes e seus salários em uma cidade ou setor específico?”
 
-![Página 2: Análise de Ocupações](Visualizações/Dashboard de Empregos Formais (RAIS 2023)_page-0002.jpg)
+![Página 2: Análise de Ocupações](Visualizacoes/dashboard_page2.jpg)
 
 ---
 
@@ -41,8 +41,6 @@ Ferramenta de *drill-down* que permite explorar dados por município e setor, re
 
 ## Estrutura do Repositório
 
-```bash
-.
 ├── ETL/
 │   ├── es2023_tratamento.ipynb         # Exploração e limpeza inicial dos dados
 │   └── preparar_csv_powerbi.ipynb      # ETL final: merge com dicionários e geração do CSV para o Power BI
