@@ -1,8 +1,21 @@
+"""
+Script para consolidação e preparação final dos dados da RAIS para importação no Power BI.
+Este script lê os dicionários de dados fornecidos pelo governo (municípios e ocupações),
+cruza essas informações com a base de dados tratada previamente e formata os tipos
+de dados e colunas para otimizar o uso no Power BI.
+"""
 import pandas as pd
 import numpy as np
 
 # Função para ler e traduzir os códigos de municípios para nomes e estados
 def traducao_municipios():
+    """
+    Lê o dicionário de municípios e cria um DataFrame mapeando os códigos
+    do IBGE para os nomes das cidades e as siglas dos estados.
+
+    Retorna:
+        pd.DataFrame: DataFrame contendo 'municpio' (código), 'estado' (UF) e 'municipio_nome'.
+    """
     
     # Lê o CSV com os municípios (formato "110001:Ro-Alta Floresta D Oeste")
     municipios_raw = pd.read_csv("RAIS_vinculos_layout2020.xls - municipio.csv", header=None, names=["raw"], sep=";")  # ajustar separador se precisar
@@ -29,6 +42,17 @@ def traducao_municipios():
 
 # Função para ler ocupações, juntar com municípios e dados principais, e limpar o DataFrame   
 def traducao_ocupacao(df_municipios):
+    """
+    Realiza o cruzamento final (merge) da base principal com os dicionários
+    de municípios e de ocupações (CBO). Além disso, realiza o tratamento final
+    dos dados, renomeando colunas para facilitar o entendimento dos usuários de negócio
+    e ajustando a formatação (ex: separador decimal da remuneração).
+
+    Argumentos:
+        df_municipios (pd.DataFrame): DataFrame com o mapeamento de municípios gerado por traducao_municipios().
+
+    Gera um arquivo 'dataframe_limpo.csv' no diretório atual.
+    """
     
     # Lê CSV com códigos de ocupação
     ocupacao_raw = pd.read_csv("RAIS_vinculos_layout2020.xls - ocupação.csv", header=None, names=["raw"], sep=";") 
@@ -86,6 +110,10 @@ def traducao_ocupacao(df_municipios):
     
 # Função principal que executa o fluxo completo
 def main():
+    """
+    Ponto de entrada do script. Orquestra a execução da extração
+    do dicionário de municípios e o processamento final da base.
+    """
     df_municipios = traducao_municipios()
     traducao_ocupacao(df_municipios)
 
